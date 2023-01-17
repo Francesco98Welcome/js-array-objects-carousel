@@ -66,7 +66,7 @@ const right = document.querySelector('.right');
 const left = document.querySelector('.left');
 
 if (currentSlide == 0) {
-   left.classList.add('hidden');
+   //left.classList.add('hidden');
 }
 
 // aggiungo un evento alla freccia di scorrimento
@@ -75,19 +75,24 @@ right.addEventListener('click', scorri);
 function scorri() {
     //console.log('cliccato su right');
     slides[currentSlide].classList.remove('current');
+
+    if(currentSlide == slides.length - 1) {
+        currentSlide = 0;
+    }
     slides[1 + currentSlide].classList.add('current');
     currentSlide++;
 
    // console.log(currentSlide);
    // console.log(slides.length);
 
-    if (currentSlide == slides.length - 1) {
-        right.classList.add('hidden');
+   /* if (currentSlide == slides.length - 1) {
+        //right.classList.add('hidden');
+        currentSlide = 0;
     } 
-
     if (currentSlide == 1) {
         left.classList.remove('hidden');
-    }
+    }*/
+
 }
 
 // aggiungo un evento alla freccia di ritorno
@@ -95,19 +100,24 @@ left.addEventListener('click', back);
 
 function back() {
     slides[currentSlide].classList.remove('current');
+
+    if(currentSlide == 0) {
+        currentSlide = slides.length;
+    }
     slides[currentSlide - 1].classList.add('current');
     currentSlide--;
    // console.log(currentSlide);
 
-    if (currentSlide == 0) {
+    /*  if (currentSlide == 0) {
         left.classList.add('hidden');
-    } 
+    } */
+   
 
-    if (currentSlide == slides.length - 2) {
+  /*  if (currentSlide == slides.length - 2) {
         right.classList.remove('hidden');
     }
 
     if (currentSlide == 1) {
         left.classList.remove('hidden');
-    }
+    }*/
 }
