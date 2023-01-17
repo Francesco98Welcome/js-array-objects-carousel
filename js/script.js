@@ -1,14 +1,4 @@
-/*
-const imgs = [
-    'img/01.webp', // 1 - indice 0
-    'img/02.webp', // 2 - indice 1
-    'img/03.webp', // 3 - indice 2
-    'img/04.webp', // 4 - indice 3
-    'img/05.webp'  // 5 - indice 4
-]
-*/
 
-const carosello = document.querySelector('.carosello');
 const images = [
     {
         image: 'img/01.webp',
@@ -33,33 +23,41 @@ const images = [
     }
 ];
 
+const carosello = document.querySelector('.carosello');
+
 for(let i = 0; i < images.length; i++) {
-    //console.log(images[i].image);
+
     let newDiv = document.createElement('div');
-   // let photo = '';
-   // photo += images[i].image;
     let immagine = document.createElement('img');
     immagine.src = `${images[i].image}`;
     newDiv.append(immagine);
     newDiv.classList.add('slide');
     console.log(newDiv);
-    
-    carosello.innerHTML += newDiv;
+    carosello.append(newDiv);
+
+    let h2 = document.createElement('h2');
+    h2.innerHTML += images[i].title;
+    newDiv.append(h2);
+
+    let p = document.createElement('p');
+    p.innerHTML += images[i].text;
+
+    let divAbs = document.createElement('div');
+    //console.log(divAbs);
+    divAbs.append(h2);
+    divAbs.append(p);
+    newDiv.append(divAbs);
+    divAbs.classList.add('abs');
+
 }
 
-/*
-for (let x = 0; x < imgs.length; x++) {
-    console.log(imgs[x]);
-    carosello.innerHTML += `<div class="slide">
-                              <img src="${imgs[x]}"> 
-                            </div>`;
-}*/
+
 
 // seleziono i div contententi le immagini
 const slides = document.querySelectorAll('.slide');
 
 // ad ogni div selezionato do una class 'current'
-//slides[0].classList.add('current');
+slides[0].classList.add('current');
 
 // dichiaro una variabile pari a 0
 let currentSlide = 0;
@@ -75,13 +73,13 @@ if (currentSlide == 0) {
 right.addEventListener('click', scorri);
 
 function scorri() {
-    console.log('cliccato su right');
+    //console.log('cliccato su right');
     slides[currentSlide].classList.remove('current');
     slides[1 + currentSlide].classList.add('current');
     currentSlide++;
 
-    console.log(currentSlide);
-    console.log(slides.length);
+   // console.log(currentSlide);
+   // console.log(slides.length);
 
     if (currentSlide == slides.length - 1) {
         right.classList.add('hidden');
@@ -99,7 +97,7 @@ function back() {
     slides[currentSlide].classList.remove('current');
     slides[currentSlide - 1].classList.add('current');
     currentSlide--;
-    console.log(currentSlide);
+   // console.log(currentSlide);
 
     if (currentSlide == 0) {
         left.classList.add('hidden');
