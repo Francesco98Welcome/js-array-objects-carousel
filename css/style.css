@@ -75,5 +75,10 @@
 .carosello .right {
     right: 10px;
 }
+.left:hover, 
+.right:hover {
+    background-color: gray;
+    color: white;
+}
 
 
