@@ -77,7 +77,7 @@ function scorri() {
     slides[currentSlide].classList.remove('current');
 
     if(currentSlide == slides.length - 1) {
-        currentSlide = 0;
+        currentSlide = -1;
     }
     slides[1 + currentSlide].classList.add('current');
     currentSlide++;
@@ -113,7 +113,7 @@ function back() {
     } */
    
 
-  /*  if (currentSlide == slides.length - 2) {
+    /*  if (currentSlide == slides.length - 2) {
         right.classList.remove('hidden');
     }
 
