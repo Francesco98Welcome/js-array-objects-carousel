@@ -37,7 +37,6 @@ for(let i = 0; i < images.length; i++) {
 
     let h2 = document.createElement('h2');
     h2.innerHTML += images[i].title;
-    newDiv.append(h2);
 
     let p = document.createElement('p');
     p.innerHTML += images[i].text;
